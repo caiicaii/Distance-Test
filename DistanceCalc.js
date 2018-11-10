@@ -14,8 +14,8 @@ function clearCalculations() {
 
 function distanceCalculation() {
 
-  var key = "AIzaSyDXyo7L4c7kZifmfR0xa7sf4u2QAhKj8ns";
-  var spreadSheet = SpreadsheetApp.openById("1Lt3YvaxCu--G95PejF2AoXAQwDB2FtaEOOYrpgM0_EU");
+  var key = "AIzaSyDXyo7L4c7kZifmfR**8ns"; //API key
+  var spreadSheet = SpreadsheetApp.openById("1Lt3YvaxCu--G95Pej**2FtaEOOYrpgM0_EU"); //spreadsheet ID
   var sheet = spreadSheet.getSheetByName('Sheet1');
   var range = sheet.getDataRange()
   var data = range.getValues()
@@ -38,7 +38,7 @@ function distanceCalculation() {
     var json = response.getContentText()
     var result = JSON.parse(json);
     
-    if(result.rows[0].elements[0].status.toString() == "OK"){//adding distance and driving time
+    if(result.rows[0].elements[0].status.toString() == "OK"){//distance and time, search JSON object for status OK
       Logger.log(true);
       sheet.getRange(num + 1, 3).setValue(result.rows[0].elements[0].distance.text);
       sheet.getRange(num + 1, 4).setValue(result.rows[0].elements[0].duration.text);
